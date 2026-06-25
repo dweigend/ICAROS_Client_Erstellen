@@ -1,5 +1,5 @@
 <!--
-Datei: LM_PROMPT.md
+Datei: Implementierungs_prompt.md
 Zweck: Liefert einen kompakten Prompt fuer LLMs, um die ICAROS Client-Systematik
 in ein bestehendes Projekt zu integrieren.
 Grenze: Der Prompt beschreibt nur Host-Verbindung, Handshake und Controller-Stream.
@@ -19,9 +19,9 @@ und normalisierte Controller-Daten empfangen.
 
 ## Relevante Dateien als Vorlage
 
-- `student-handshake-example.ts`
-- `student-control-stream-example.ts`
-- `client-connection.md`
+- `Handshake_Beispiel.ts`
+- `Controller_Stream_Beispiel.ts`
+- `Host_Verbindung_Anleitung.md`
 
 ## Muss umgesetzt werden
 

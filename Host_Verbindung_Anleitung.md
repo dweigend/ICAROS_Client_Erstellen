@@ -1,5 +1,5 @@
 <!--
-Datei: client-connection.md
+Datei: Host_Verbindung_Anleitung.md
 Zweck: Erklaert die Verbindung eines eigenen Clients mit dem ICAROS Host.
 Grenze: Beschreibt nur Handshake und Controller-Stream, keine Projektarchitektur.
 -->
@@ -8,8 +8,8 @@ Grenze: Beschreibt nur Handshake und Controller-Stream, keine Projektarchitektur
 
 Diese Anleitung gehoert zu den zwei Beispielskripten in diesem Repository:
 
-- `student-handshake-example.ts`
-- `student-control-stream-example.ts`
+- `Handshake_Beispiel.ts`
+- `Controller_Stream_Beispiel.ts`
 
 Die beiden Skripte zeigen nur die Host-Kommunikation. Rendering, VR-Logik,
 Szenen, Physik, UI und Asset-Loading gehoeren in dein eigenes Projekt.
@@ -26,8 +26,8 @@ die Rohdaten, normalisiert sie und sendet deinem Client einfache Werte wie
 
 | Aufgabe | WebSocket | Beispielskript |
 | --- | --- | --- |
-| Launch-Handshake | `wss://<host>:5183/ws/runtime` | `student-handshake-example.ts` |
-| Controller-Daten lesen | `wss://<host>:5183/ws/control/main` | `student-control-stream-example.ts` |
+| Launch-Handshake | `wss://<host>:5183/ws/runtime` | `Handshake_Beispiel.ts` |
+| Controller-Daten lesen | `wss://<host>:5183/ws/control/main` | `Controller_Stream_Beispiel.ts` |
 
 Die Host-Origin kommt aus der Host-WebUI:
 
@@ -37,14 +37,14 @@ https://<host-lan-ip-oder-name>:5183
 
 Aus dieser HTTPS-Origin werden die WebSocket-URLs abgeleitet.
 
-Zitat aus `student-handshake-example.ts`:
+Zitat aus `Handshake_Beispiel.ts`:
 
 ```ts
 const RUNTIME_PATH = '/ws/runtime';
 const HEARTBEAT_MS = 4_000;
 ```
 
-Zitat aus `student-control-stream-example.ts`:
+Zitat aus `Controller_Stream_Beispiel.ts`:
 
 ```ts
 const CONTROL_PATH = '/ws/control/main';
@@ -56,7 +56,7 @@ Das Handshake-Skript verbindet sich mit `/ws/runtime`. Direkt nach dem Oeffnen
 des WebSockets sendet der Client `client.hello`. Nach `client.registered`
 sendet er regelmaessig `client.heartbeat`.
 
-Zitat aus `student-handshake-example.ts`:
+Zitat aus `Handshake_Beispiel.ts`:
 
 ```ts
 function attachEvents(runtime: Runtime): void {
@@ -71,7 +71,7 @@ function attachEvents(runtime: Runtime): void {
 Die Export-Funktion steht unten und setzt nur vorbereitete Einzelfunktionen
 zusammen.
 
-Zitat aus `student-handshake-example.ts`:
+Zitat aus `Handshake_Beispiel.ts`:
 
 ```ts
 export function startHandshake(options: HandshakeOptions): () => void {
@@ -117,7 +117,7 @@ Das Controller-Skript verbindet sich mit `/ws/control/main`. Es sendet selbst
 keine Nachricht an den Host. Es liest nur `control.orientation`, validiert die
 Nachricht und gibt die typisierten Werte an den Client weiter.
 
-Zitat aus `student-control-stream-example.ts`:
+Zitat aus `Controller_Stream_Beispiel.ts`:
 
 ```ts
 function handleControlMessage(
