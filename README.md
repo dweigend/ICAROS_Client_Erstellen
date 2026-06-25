@@ -6,8 +6,7 @@ Grenze: Keine vollstaendige ICAROS-Dokumentation, sondern Einstiegspunkt.
 
 # ICAROS Client erstellen 🚀
 
-Dieses Repository enthaelt die kleinste brauchbare Systematik, um einen eigenen
-Client mit dem ICAROS Host zu verbinden.
+Dieses Repository zeigt Euch wie ihr einen Client mit dem ICAROS Host zu verbindet.
 
 ## Was ist drin? 📦
 
